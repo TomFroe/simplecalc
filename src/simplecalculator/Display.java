@@ -31,7 +31,7 @@ public class Display implements IDisplay
     public void show()
     {
         String symbol;
-        System.out.println("Willkommen beim Simple Calculator!");
+
         Scanner scan = new Scanner(System.in);
         boolean finished = false;
         while (!finished)
