@@ -41,7 +41,7 @@ public class Display implements IDisplay
                 System.out.println("Bitte geben Sie die erste Zahl ein");
                 x = scan.nextDouble();
             
-                System.out.println("Bitte geben Sie das Rechensymbol ein (+, -, *, /, ^)");
+                System.out.println("Bitte geben Sie das Rechensymbol ein (+, -, *, /, ^, wurzel)");
                 symbol = scan.next();
             
                 System.out.println("Bitte geben Sie die zweite Zahl ein");
@@ -86,6 +86,9 @@ public class Display implements IDisplay
                 
             case "^":
             return new ArithmeticExponent();
+                
+            case "wurzel":
+            return new ArithmeticRoot();
                 
             default:
             break;
