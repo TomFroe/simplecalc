@@ -11,5 +11,10 @@ package simplecalculator;
  */
 public interface IArithmetic
 {
+    /**
+     * @param x
+     * @param y
+     * @return 
+     */
     public double calculate(double x, double y);
 }

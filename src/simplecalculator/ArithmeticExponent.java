@@ -11,6 +11,12 @@ package simplecalculator;
  */
 public class ArithmeticExponent implements IArithmetic {
     
+    /**
+     * 
+     * @param x: first operator
+     * @param y: second operator
+     * @return: potentiate the given input
+     */
     @Override
     public double calculate(double x, double y) 
     {

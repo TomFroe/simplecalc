@@ -11,7 +11,12 @@ package simplecalculator;
  */
 public class ArithmeticAdd implements IArithmetic
 {
-
+    /**
+     * 
+     * @param x: first value
+     * @param y: second value
+     * @return: sum of the given input
+     */
     @Override
     public double calculate(double x, double y) 
     {

@@ -12,6 +12,12 @@ package simplecalculator;
 public class ArithmeticMultiply implements IArithmetic
 {
 
+    /**
+     * 
+     * @param x: first operator
+     * @param y: second operator
+     * @return: product of the given input
+     */
     @Override
     public double calculate(double x, double y) 
     {

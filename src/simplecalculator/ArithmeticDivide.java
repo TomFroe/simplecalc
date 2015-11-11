@@ -11,6 +11,12 @@ package simplecalculator;
  */
 public class ArithmeticDivide implements IArithmetic
 {
+    /**
+     * 
+     * @param x: first value
+     * @param y: second value
+     * @return: quotient of the given input
+     */
     @Override
     public double calculate(double x, double y)
     {

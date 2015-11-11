@@ -67,7 +67,10 @@ public class Display implements IDisplay
             }
         }
     }
-        
+   /**  
+    *@param s: suitable Operator
+    *@return: new concrete Arithmetic Objekt
+    */
     private IArithmetic selectArithmetic(String s)
     {
         switch(s)

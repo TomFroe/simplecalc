@@ -10,6 +10,13 @@ package simplecalculator;
  * @author Tom
  */
 public class ArithmeticRoot implements IArithmetic{
+    
+    /**
+     * 
+     * @param x: first operator
+     * @param y: second operator
+     * @return: root of the given input
+     */
     @Override
     public double calculate(double x, double y) 
     {
