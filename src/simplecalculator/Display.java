@@ -16,7 +16,7 @@ public class Display implements IDisplay
 {
     private IArithmetic calc;
     private double result, x, y;
-    
+    private SQLConnection sql = new SQLConnection();
     
     /**
      *
@@ -49,6 +49,7 @@ public class Display implements IDisplay
                 y = scan.nextDouble();
                 
                 result = selectArithmetic(symbol).calculate(x, y);
+                sql.insert(symbol, x, y, result);
                 System.out.println("Ergebnis: " + Math.round(result*100)/100.0);
             }
             
@@ -63,7 +64,7 @@ public class Display implements IDisplay
                 if (scan.next().toLowerCase().equals("ja"))
                 {
                     finished = true;
-                    System.out.println("Vergangene Werte:");
+                    System.out.println(sql.ausgabe());
                     System.out.println("Auf Wiedersehen");
                 }
             }

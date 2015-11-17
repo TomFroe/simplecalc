@@ -47,4 +47,55 @@ public class SQLConnection {
             System.out.println(e);
         }
     }
+    
+    public String ausgabe()
+    {
+            Statement statement = null;
+            double x, y, ergebnis;
+            x = y = ergebnis = 0;
+            String c;
+            try
+            {
+                statement = connection.createStatement();
+                ResultSet result = null;
+                try
+                {
+                    String sql = "SELECT * FROM rechner ORDER BY idrechner DESC LIMIT 10";
+            
+                    result = statement.executeQuery(sql);
+                    while(result.next())
+                    {
+                        x += result.getDouble("operatorX");
+                        y += result.getDouble("operatorY");
+                        ergebnis += result.getDouble("ergebnis");
+                        String symbol = result.getString("rechensymbol");
+                    }
+                }
+                finally 
+                {
+                    if (result != null) result.close();
+                }               
+            } 
+            catch(Exception e)
+            {
+               System.out.println(e);
+            }
+        finally
+        {
+          try
+          {
+              if(statement != null) 
+              {
+                statement.close();
+              }
+              
+          }
+          catch(SQLException e)
+          {
+              System.out.println(e);
+          }
+          }
+          return "Der Durchschnitt der letzten 10 Einträge: \nDurchschnitt-X: " + x/10 + " Durchschnitt-Y: " + y/10 + " Durchschnitt-Ergebnis: " + y/10;
+    }  
 }
+    
