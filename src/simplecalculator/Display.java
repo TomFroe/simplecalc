@@ -15,7 +15,8 @@ import java.util.Scanner;
 public class Display implements IDisplay
 {
     private IArithmetic calc;
-    double result, x, y;
+    private double result, x, y;
+    
     
     /**
      *
@@ -62,6 +63,7 @@ public class Display implements IDisplay
                 if (scan.next().toLowerCase().equals("ja"))
                 {
                     finished = true;
+                    System.out.println("Vergangene Werte:");
                     System.out.println("Auf Wiedersehen");
                 }
             }
