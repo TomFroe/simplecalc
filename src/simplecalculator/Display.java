@@ -65,6 +65,7 @@ public class Display implements IDisplay
                 {
                     finished = true;
                     System.out.println(sql.ausgabe());
+                    System.out.println(sql.ausgabeOperationen());
                     System.out.println("Auf Wiedersehen");
                 }
             }

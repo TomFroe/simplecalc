@@ -1,11 +1,13 @@
 package simplecalculator;
 
+import java.util.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 // Notice, do not import com.mysql.jdbc.*
 // or you will have problems!
@@ -23,7 +25,6 @@ public class SQLConnection {
             
         connection = DriverManager.getConnection(url, user, password);
             
-        System.out.println("Verbindung erfolgreich");
     }
     
     catch (ClassNotFoundException | SQLException e) {
@@ -60,7 +61,7 @@ public class SQLConnection {
                 ResultSet result = null;
                 try
                 {
-                    String sql = "SELECT * FROM rechner ORDER BY idrechner DESC LIMIT 10";
+                    String sql = "SELECT * FROM calc.rechner ORDER BY idrechner DESC LIMIT 10";
             
                     result = statement.executeQuery(sql);
                     while(result.next())
@@ -97,5 +98,52 @@ public class SQLConnection {
           }
           return "Der Durchschnitt der letzten 10 Einträge: \nDurchschnitt-X: " + x/10 + " Durchschnitt-Y: " + y/10 + " Durchschnitt-Ergebnis: " + y/10;
     }  
+    
+    public String ausgabeOperationen()
+    {
+            Statement statement = null;
+            ResultSet result = null;
+            int i = 0;
+            try
+            {
+                statement = connection.createStatement();
+                try
+                {
+                    String sql = "SELECT * FROM calc.rechner";
+            
+                    result = statement.executeQuery(sql);
+                    while(result.next())
+                    {
+                        i++;
+                    }
+                }
+                finally 
+                {
+                    if (result != null) result.close();
+                }   
+                
+            } 
+            catch(Exception e)
+            {
+               System.out.println(e);
+            }
+        finally
+        {
+          try
+          {
+              if(statement != null) 
+              {
+                statement.close();
+              }
+              
+          }
+          catch(SQLException e)
+          {
+              System.out.println(e);
+          }
+        }
+            return "Die Anzahl der durchgeführten Operationen: " + i; 
+    }   
+     
 }
     
